@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        // Set the value of the username input field to the retrieved username
       })
       .catch((error) => {
         console.log("Error fetching user data:", error);
@@ -30,20 +29,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitButton = document.createElement("button");
   submitButton.addEventListener("click", (e) => {
     e.preventDefault();
+    const username = usernameInput.value;
+    fetchUserData(username);
+    githubForm.reset();
   });
   submitButton.type = "submit";
   submitButton.textContent = "Submit";
 
-  // Handle form submission
-  githubForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const username = usernameInput.value;
-
+  // Github form submission
+  githubForm.addEventListener("submit", (e) => {
+    e.preventDefault();
     console.log("Submitted username:", username);
-    // You can add further processing or submission logic here
   });
 
-  // adds items to username and input
+  // appended items
   githubForm.appendChild(userNameLabel);
   githubForm.appendChild(usernameInput);
   githubForm.appendChild(submitButton);
