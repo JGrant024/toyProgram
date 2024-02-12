@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   submitButton.type = "submit";
   submitButton.textContent = "Submit";
-
+  let html = document.getElementById;
   // Github form submission
   githubForm.addEventListener("submit", (e) => {
     e.preventDefault();
